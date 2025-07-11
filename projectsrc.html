@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Website</title>
+    <link rel="stylesheet" href="D:\FWD\projectcss.css">
+</head>
+<body>
+    <header>
+        <h1>E LIBRIAY</h1>
+        <nav>
+            <ul>
+                <li><button class="button"><a href="D:\FWD\projecthome.html">Home</a></button</li>
+                <li><button class="button"><a href="#login">Login</a></button</li>
+<li><button class="button"><a href="D:\FWD\aboutpro.html">About</a></button></li>
+<li><button class="button"><a href="D:\FWD\contact.html">Contact</a></button></li>
+            </ul>
+        </nav>
+    </header>
+<section id="login">
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="submit">Login</button>
+        </form>
+        <p id="loginMessage"></p>
+    </section>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            // Get username and password values
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            // Check if username and password are correct (dummy check)
+            if (username === "admin" && password === "password") {
+                document.getElementById("loginMessage").innerText = "Login successful!";
+            } else {
+                document.getElementById("loginMessage").innerText = "Invalid username or password. Please try again.";
+            }
+        });
+    </script>
+</body>
+</html>

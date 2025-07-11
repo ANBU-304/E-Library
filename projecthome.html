@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Library</title>
+    <link rel="stylesheet" href="D:\FWD\projectcss.css">
+<link rel="stylesheet" type="text/css" href="D:\FWD\projectcss.css"/>
+<style>
+.grid-container {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: auto auto auto;
+  background-color: #cccccc;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(0,139,139,0.10);
+  border: none;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+.grid-item:hover{
+
+</style>
+</head>
+<body>
+    <header>
+<h1>E-LIBRARY</h1>
+<nav>
+            <ul>
+                <li><button class="button"><a href="D:\FWD\projecthome.html">Home</a></button</li>
+                <li><button class="button"><a href="D:\FWD\projectsrc.html">Login</a></button</li>
+<li><button class="button"><a href="D:\FWD\aboutpro.html">About</a></button></li>
+<li><button class="button"><a href="D:\FWD\contact.html">Contact</a></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="search">
+        <h2>Search for Books</h2>
+        <input type="text" id="searchInput" placeholder="Enter book title or author">
+        <button onclick="searchBooks()">Search</button>
+    </section>
+
+    <section id="results">
+        <h2>Search Results</h2>
+        <div id="booksList"></div>
+    </section>
+<div class="grid-container">
+<div class="grid-item"> <img src="D:\FWD\the great gatsby.webp" width="190" height="300"><h3>"The Great Gatsby"</h3> Author: "F. Scott Fitzgerald"<br>year: 1925<br>genre: "Classic"<br><button class="btn-hover">buy $9.99</button> </div>
+  <div class="grid-item"><img src="D:\FWD\moking bird.jpg" width="190" height="300"><br><h3> "To Kill a Mockingbird"</h3> Author: "Harper Lee"<br> year: 1960<br> genre: "Fiction" <br><button class="btn-hover">buy $9.99</button></div>
+  <div class="grid-item"><img src="D:\FWD\1984.jpg" width="190" height="300"> <h3>"1984"</h3>Author: "George Orwell"<br> year: 1949<br> genre: "Dystopian"<br><button class="btn-hover">buy $9.99</button> </div>  
+  <div class="grid-item"><img src="D:\FWD\pride and pejudice.jpeg"width="190" height="300"><h3> "Pride and Prejudice"</h3> Author: "Jane Austen" <br>year: 1813<br> genre: "Romance"<br><button class="btn-hover">buy $9.99</button></div>
+  <div class="grid-item"><img src="D:\FWD\where the light enter.jpg" width="190" height="300"><h3>"Where The Light Enters"</h3> Author: "Sara Donati" <br> year:2019<br> genre: "Histroy and Romance"<br><button class="btn-hover">buy $9.99</button></div>
+  <div class="grid-item">6</div>  
+  <div class="grid-item">7</div>
+  <div class="grid-item">8</div>
+  <div class="grid-item">9</div>  
+</div>
+
+    <script>
+        // Sample book data
+        const books = [
+            { title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925, genre: "Classic" },
+            { title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960, genre: "Fiction" },
+            { title: "1984", author: "George Orwell", year: 1949, genre: "Dystopian" },
+            { title: "Pride and Prejudice", author: "Jane Austen", year: 1813, genre: "Romance" }
+            // Add more books as needed
+        ];
+
+        // Function to search for books
+        function searchBooks() {
+            const searchQuery = document.getElementById("searchInput").value.toLowerCase();
+            const searchResults = books.filter(book => {
+                return book.title.toLowerCase().includes(searchQuery) || book.author.toLowerCase().includes(searchQuery);
+            });
+            displayResults(searchResults);
+        }
+
+        // Function to display search results
+        function displayResults(results) {
+            const booksList = document.getElementById("booksList");
+            booksList.innerHTML = ""; // Clear previous results
+            if (results.length === 0) {
+                booksList.innerHTML = "<p>No results found.</p>";
+            } else {
+                results.forEach(book => {
+                    const bookItem = document.createElement("div");
+                    bookItem.innerHTML = `<p><strong>Title:</strong> ${book.title}</p>
+                                          <p><strong>Author:</strong> ${book.author}</p>
+                                          <p><strong>Year:</strong> ${book.year}</p>
+                                          <p><strong>Genre:</strong> ${book.genre}</p>`;
+                    booksList.appendChild(bookItem);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
